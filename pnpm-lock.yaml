@@ -14,6 +14,9 @@ importers:
       agent-twitter-client:
         specifier: ^0.0.18
         version: 0.0.18
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       twitter-api-v2:
         specifier: ^1.19.1
         version: 1.20.2
@@ -157,6 +160,10 @@ packages:
     resolution: {integrity: sha512-A2is4PLG+eeSfoTMA95/s4pvAoSo2mKtiM5jlHkAVewmiO8ISFTFKZjH7UAM1Atli/OT/7JHOrJRJiMKUZKYBw==}
     engines: {node: '>=12'}
     deprecated: Use your platform's native DOMException instead
+
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -679,6 +686,8 @@ snapshots:
     dependencies:
       webidl-conversions: 7.0.0
     optional: true
+
+  dotenv@16.4.7: {}
 
   dunder-proto@1.0.1:
     dependencies:
