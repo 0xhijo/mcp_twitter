@@ -1,0 +1,71 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - twitterAuthMode
+    properties:
+      twitterAuthMode:
+        type: string
+        default: CREDENTIALS
+        description: "Authentication mode: CREDENTIALS for user/password and API for
+          using Twitter API keys"
+      twitterUsername:
+        type: string
+        default: YOUR_TWITTER_USERNAME
+        description: Twitter username (for CREDENTIALS mode)
+      twitterPassword:
+        type: string
+        default: YOUR_TWITTER_PASSWORD
+        description: Twitter password (for CREDENTIALS mode)
+      twitterEmail:
+        type: string
+        default: YOUR_TWITTER_EMAIL
+        description: Twitter email (for CREDENTIALS mode)
+      twitterApi:
+        type: string
+        default: YOUR_TWITTER_API
+        description: Twitter API key (for API mode)
+      twitterApiSecret:
+        type: string
+        default: YOUR_TWITTER_API_SECRET
+        description: Twitter API secret (for API mode)
+      twitterAccessToken:
+        type: string
+        default: YOUR_TWITTER_ACCESS_TOKEN
+        description: Twitter Access Token (for API mode)
+      twitterAccessTokenSecret:
+        type: string
+        default: YOUR_TWITTER_ACCESS_TOKEN_SECRET
+        description: Twitter Access Token Secret (for API mode)
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => {
+      // Set environment variables based on the provided configuration
+      const env = {};
+      env.TWITTER_AUTH_MODE = config.twitterAuthMode;
+      if(config.twitterAuthMode === 'CREDENTIALS') {
+        env.TWITTER_USERNAME = config.twitterUsername;
+        env.TWITTER_PASSWORD = config.twitterPassword;
+        env.TWITTER_EMAIL = config.twitterEmail;
+      } else if(config.twitterAuthMode === 'API') {
+        env.TWITTER_API = config.twitterApi;
+        env.TWITTER_API_SECRET = config.twitterApiSecret;
+        env.TWITTER_ACCESS_TOKEN = config.twitterAccessToken;
+        env.TWITTER_ACCESS_TOKEN_SECRET = config.twitterAccessTokenSecret;
+      }
+      return {
+        command: 'node',
+        args: ['./build/index.js'],
+        env
+      };
+    }
+  exampleConfig:
+    twitterAuthMode: CREDENTIALS
+    twitterUsername: example_user
+    twitterPassword: example_password
+    twitterEmail: example_email@example.com
