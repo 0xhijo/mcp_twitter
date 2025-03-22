@@ -1,5 +1,7 @@
 # MCP Twitter
 
+[![smithery badge](https://smithery.ai/badge/@0xhijo/mcp_twitter)](https://smithery.ai/server/@0xhijo/mcp_twitter)
+
 ## Description
 MCP Twitter is a server based on the Model Context Protocol that allows direct interaction with Twitter/X. It exposes various Twitter API functionalities through a standardized set of tools, enabling AI models and applications to perform actions on Twitter.
 
@@ -20,6 +22,14 @@ This MCP server provides the following actions:
 - **`get_own_twitter_account_info`**: Get current account profile data
 
 ## Installation and Usage
+
+### Installing via Smithery
+
+To install Twitter Interaction Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@0xhijo/mcp_twitter):
+
+```bash
+npx -y @smithery/cli install @0xhijo/mcp_twitter --client claude
+```
 
 ### Local Installation
 
@@ -107,8 +117,3 @@ Once configured, Claude will be able to use all the Twitter functionalities prov
 - Choose the authentication mode (API or CREDENTIALS) based on your needs
 - Verify that your credentials are properly configured in the .env file
 - Check the official documentation for more details about API limitations
-
-
-
-
-
